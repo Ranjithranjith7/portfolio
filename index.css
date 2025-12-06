@@ -385,3 +385,93 @@ footer {
     font-size: 20px;
 }
 
+@media (max-width: 1024px) {
+
+  nav {
+    flex-direction: column;
+    padding: 15px 20px;
+    text-align: center;
+  }
+
+  nav .social-icons img {
+    margin: 10px;
+  }
+
+  .profile-pic {
+    width: 240px;
+    height: 240px;
+  }
+
+  .card,
+  #projects .project-item,
+  #contact .contact-item {
+    width: 90%;
+  }
+
+  .experience {
+    width: 95%;
+  }
+}
+
+
+/* Mobile view */
+@media (max-width: 768px) {
+
+  nav {
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 15px;
+  }
+
+  nav .logo {
+    font-size: 26px;
+    letter-spacing: 2px;
+  }
+
+  .nav-buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  nav .social-icons img {
+    width: 24px;
+    margin: 8px;
+  }
+
+  .banner {
+    padding: 40px 15px;
+  }
+
+  .profile-pic {
+    width: 170px;
+    height: 170px;
+  }
+
+  .name {
+    font-size: 28px;
+  }
+
+  #typing {
+    font-size: 18px;
+  }
+
+  .summary-text {
+    font-size: 15px;
+    padding: 0 10px;
+  }
+
+  h2 {
+    font-size: 26px;
+  }
+
+  .card,
+  .experience,
+  #projects .project-item,
+  #contact .contact-item {
+    width: 100%;
+  }
+
+  footer {
+    font-size: 16px;
+  }
+}
