@@ -28,7 +28,7 @@ nav .logo {
     -webkit-background-clip: text;
     color: transparent;
     animation: glowLogo 5s infinite alternate;
-    letter-spacing: 3px;
+    letter-spacing: 4px;
 }
 
 nav .social-icons img {
@@ -38,6 +38,7 @@ nav .social-icons img {
     transition: 0.3s ease;
     cursor: pointer;
 }
+
 
 nav .social-icons img:hover {
     transform: scale(1.2) rotate(15deg);
@@ -49,6 +50,30 @@ nav .social-icons img:hover {
     transform: translateY(60px);
     animation: fadeUp 1s ease forwards;
 }
+
+.nav-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.nav-btn {
+    padding: 10px 20px;
+    background: linear-gradient(90deg, #0261f9, #8ee6f4);
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 600;
+    border-radius: 25px;
+    box-shadow: 0 0 10px #0099ffaa;
+    transition: 0.3s ease;
+    font-style: italic;
+}
+
+.nav-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 10px #00c8ff;
+}
+
 
 /* Banner */
 .banner {
@@ -67,18 +92,8 @@ nav .social-icons img:hover {
     border: 5px solid #4da6ff;
     object-fit: cover;
     box-shadow: 0 0 25px #007bff, 0 0 40px #0044ff88;
-    animation: floatPic 4s ease-in-out infinite;
-}
-
-.profile-pic {
-    width: 310px;
-    height: 310px;
-    border-radius: 50%;
-    border: 5px solid #4da6ff;
-    object-fit: cover;
-    box-shadow: 0 0 25px #007bff, 0 0 40px #0044ff88;
-    animation: floatPic 4s ease-in-out infinite;
-    transition: transform 0.4s ease;
+    animation: floatPic 3s ease-in-out infinite;
+    transition: transform 0.4s;
 }
 
 .profile-pic:hover {
@@ -118,7 +133,7 @@ nav .social-icons img:hover {
 
 
 .card i {
-    font-size: 75px;
+    font-size: 60px;
     margin-right: 10px;
     color: #4da6ff;
 }
@@ -142,7 +157,7 @@ nav .social-icons img:hover {
 
 .resume-btn:hover {
     transform: scale(1.15);
-    box-shadow: 0 0 5px #00c8ff, 0 0 40px #307ac9c9;
+    box-shadow: 0 0 5px #00c8ff, 0 0 10px #307ac9c9;
 }
 
 
@@ -154,9 +169,10 @@ section {
 h2 {
     font-size: 38px;
     margin-bottom: 35px;
-    background: linear-gradient(90deg, #4da6ff, #00e1ff);
+    background: linear-gradient(90deg, #027ffc, #68ecfd);
     -webkit-background-clip: text;
     color: transparent;
+    letter-spacing: 4px;
 }
 
 
@@ -169,6 +185,7 @@ h2 {
 
 
 .card {
+    font-style: italic;
     width: 330px;
     background: rgba(255,255,255,0.06);
     padding: 25px;
@@ -282,6 +299,7 @@ h2 {
     transition: 0.4s ease;
     cursor: pointer;
     text-align: left;
+    font-style: italic;
 }
 
 #projects .project-item:hover {
@@ -351,6 +369,10 @@ h2 {
     font-size: 18px;
 }
 
+#contact .contact-item a{
+    text-decoration: none;
+    font-style: italic;
+}
 
 /* Footer */
 footer {
