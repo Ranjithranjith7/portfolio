@@ -15,7 +15,7 @@
 
 <nav>
     <div class="left-nav">
-        <div class="logo">R RANJITH</div>
+        <div class="logo"><i>R RANJITH</i></div>
 
         <div class="social-icons">
             <a href="https://www.facebook.com/share/1FURgmzN1N/"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/facebook.svg"></a>
@@ -76,7 +76,7 @@
 
     <div class="card education-card">
         <span class="year"> 2021 - 2022</span><br>
-        <span class="degree"> H S C </span><br>
+        <span class="degree"> H S C - Higher Secondary Certificate</span><br>
         <span class="score">PERCENTAGE : 75.33% </span>
         <span class="institute">INDRA GANDHI GOVT. HR SEC SCHOOL, INDRA NAGAR, PUDUCHERRY <br>( TAMIL NADU STATE BOARD )</span><br>
         
@@ -85,7 +85,7 @@
 
     <div class="card education-card">
         <span class="year"> 2019 - 2020</span><br>
-        <span class="degree"> S S L C</span><br>
+        <span class="degree"> S S L C - Secondary School Leaving Certificate</span><br>
         <span class="score"> PERCENTAGE : 65.4%</span>
         <span class="institute">GOVERNMENT HIGH SCHOOL, THIRUKKANUR, PUDUCHERRY <br>( TAMIL NADU STATE BOARD )</span><br>
         
@@ -123,7 +123,7 @@
         <div class="card"><i class="fa-brands fa-js"></i> Java Script</div>
         <div class="card"><i class="fa-brands fa-python"></i> Python</div>
         <div class="card"><i class="fa-solid fa-database"></i> My SQL</div>
-        <div class="card"><i class="fa-brands fa-d"></i> Django</div>
+        <div class="card"><i class="fa-brands fa-dailymotion"></i> Django</div>
         <div class="card"><i class="fa-brands fa-github"></i> Git Hub</div>
     </div>
 </section>
@@ -172,7 +172,7 @@
         <div class="contact-item">
             <a href="tel:+916379309638">
                 <h3><i class="fa-solid fa-mobile"></i> MOBILE</h3>
-                <p>+91 63793 09638</p>
+                <p>+91 6379 30 9638</p>
             </a>
         </div>
     </div>
@@ -208,6 +208,26 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         });
     });
 });
+
+
+const container = document.querySelector('.profile-container');
+const pic = document.querySelector('.profile-pic');
+
+container.addEventListener("mousemove", (e) => {
+    const rect = container.getBoundingClientRect();
+    const x = e.clientX - rect.left - rect.width / 2;
+    const y = e.clientY - rect.top - rect.height / 2;
+
+    const rotateX = (y / rect.height) * -10;
+    const rotateY = (x / rect.width) * 10;
+
+    pic.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`;
+});
+
+container.addEventListener("mouseleave", () => {
+    pic.style.transform = "rotateX(0deg) rotateY(0deg) scale(1)";
+});
+
 
 </script>
 

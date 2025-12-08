@@ -65,12 +65,12 @@ nav {
 /* CENTER NAV LINKS */
 .nav-links {
     display: flex;
-    gap: 35px;
+    gap: 25px;
 }
 
 .nav-links a {
     color: #d9f0ff;
-    font-size: 15px;
+    font-size: 18px;
     font-weight: 600;
     text-decoration: none;
     transition: 0.3s;
@@ -133,41 +133,66 @@ nav {
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden; /* prevents layout shift when image scales */
+    overflow: hidden;
     position: relative;
-    z-index: 1;
 }
 
+.profile-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    perspective: 1200px; /* enables depth */
+}
+
+/* 3D + Cinematic Reveal + Depth Glow */
 .profile-pic {
     width: 310px;
     height: 310px;
     border-radius: 50%;
-    border: 5px solid #4da6ff;
+    border: 4px solid #4da6ff;
     object-fit: cover;
     display: block;
-    will-change: transform, box-shadow;
-    box-shadow: 0 0 25px #007bff, 0 0 40px #0044ff88;
-    animation: floatPic 5s ease-in-out infinite;
-    transition: transform 0.55s cubic-bezier(.2,.9,.2,1), box-shadow 0.55s ease;
-    z-index: 2;               /* ensure it is above background layers */
-    pointer-events: auto;     /* ensure the image can receive hover */
+    position: relative;
+    transition: 
+        transform 0.4s ease,
+        box-shadow 0.4s ease,
+        opacity 1s ease;
+
+    /* Cinematic fade-in */
+    transform: scale(0.9);
+    opacity: 0;
+    animation: cinematicEnter 1.4s forwards ease-out;
+
+    box-shadow: 0 10px 25px rgba(0, 140, 255, 0.25);
 }
 
-/* Pause floating and apply smooth zoom + stronger glow on hover */
+/* Zoom + Fade In */
+@keyframes cinematicEnter {
+    0% {
+        opacity: 0;
+        transform: scale(0.85) translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* Hover → lift + depth glow */
 .profile-pic:hover {
-    transform: scale(1.15);
-    box-shadow: 0 0 40px #00d4ff, 0 0 70px #0088ffbb;
-    animation-play-state: paused;
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 0 35px #00aaff, 0 0 70px #0077ff70;
 }
 
-/* floating animation (keep if you want float when NOT hovered) */
-@keyframes floatPic {
-    0% { transform: translateY(0) rotateX(0deg) rotateY(0deg); }
-    50% { transform: translateY(-12px) rotateX(4deg) rotateY(-4deg); }
-    100% { transform: translateY(0) rotateX(0deg) rotateY(0deg); }
+/* 3D Parallax effect */
+.profile-container:hover .profile-pic {
+    transition: transform 0.25s ease;
 }
 
-
+.profile-container {
+    position: relative;
+}
 
 .name {
     margin-top: 20px;
