@@ -22,7 +22,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 2px 40px;
+    padding: 0px 40px 5px 10px;
     z-index: 1000;
     border-bottom: 1px solid #1a4a7f;
 }
@@ -36,23 +36,23 @@ nav {
 
 /* LOGO - TOP LEFT */
 .left-nav .logo {
-    font-size: 32px;
+    font-size: 38px;
     font-weight: 700;
     background: linear-gradient(90deg, #4da6ff, #00faff, #00ff7b);
     -webkit-background-clip: text;
     color: transparent;
-    letter-spacing: 10px;
-    margin-bottom: 7px;
+    letter-spacing: 7px;
+    margin-bottom: 2px;
 }
 
 /* SOCIAL ICONS - BOTTOM LEFT */
 .left-nav .social-icons {
     display: flex;
-    gap: 18px;
+    gap: 30px;
 }
 
 .left-nav .social-icons img {
-    width: 26px;
+    width: 17px;
     filter: brightness(0) invert(1);
     transition: 0.3s;
 }
