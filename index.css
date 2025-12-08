@@ -1,4 +1,10 @@
+body { font-family: 'IBM Plex Sans', sans-serif; }
+code, pre { font-family: 'JetBrains Mono', monospace; }
+h1,h2 { font-weight:600; }
+
+
 body {
+
     margin: 0;
     padding: 0;
     background: #013891;
@@ -16,41 +22,81 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 40px;
+    padding: 2px 40px;
     z-index: 1000;
     border-bottom: 1px solid #1a4a7f;
 }
 
-nav .logo {
+/* LEFT SIDE CONTAINER */
+.left-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+/* LOGO - TOP LEFT */
+.left-nav .logo {
     font-size: 32px;
     font-weight: 700;
     background: linear-gradient(90deg, #4da6ff, #00faff, #00ff7b);
     -webkit-background-clip: text;
     color: transparent;
-    animation: glowLogo 5s infinite alternate;
-    letter-spacing: 4px;
+    letter-spacing: 10px;
+    margin-bottom: 7px;
 }
 
-nav .social-icons img {
-    width: 28px;
-    margin-left: 20px;
+/* SOCIAL ICONS - BOTTOM LEFT */
+.left-nav .social-icons {
+    display: flex;
+    gap: 18px;
+}
+
+.left-nav .social-icons img {
+    width: 26px;
     filter: brightness(0) invert(1);
-    transition: 0.3s ease;
-    cursor: pointer;
+    transition: 0.3s;
 }
 
-
-nav .social-icons img:hover {
+.left-nav .social-icons img:hover {
     transform: scale(1.2) rotate(15deg);
     filter: drop-shadow(0 0 10px #4da6ff);
 }
 
-.fade-up {
-    opacity: 0;
-    transform: translateY(60px);
-    animation: fadeUp 1s ease forwards;
+/* CENTER NAV LINKS */
+.nav-links {
+    display: flex;
+    gap: 35px;
 }
 
+.nav-links a {
+    color: #d9f0ff;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: 0.3s;
+    position: relative;
+}
+
+.nav-links a:hover {
+    color: #ffffff;
+}
+
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 3px;
+    bottom: -5px;
+    left: 0;
+    background: linear-gradient(90deg, #4da6ff, #00ffe7);
+    transition: 0.3s;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* RIGHT SIDE BUTTONS */
 .nav-buttons {
     display: flex;
     gap: 15px;
@@ -61,19 +107,16 @@ nav .social-icons img:hover {
     background: linear-gradient(90deg, #0261f9, #8ee6f4);
     color: white;
     text-decoration: none;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 600;
     border-radius: 25px;
-    box-shadow: 0 0 10px #0099ffaa;
-    transition: 0.3s ease;
-    font-style: italic;
+    transition: 0.3s;
 }
 
 .nav-btn:hover {
     transform: scale(1.1);
     box-shadow: 0 0 10px #00c8ff;
 }
-
 
 /* Banner */
 .banner {
@@ -85,21 +128,46 @@ nav .social-icons img:hover {
     backdrop-filter: blur(18px);
 }
 
+/* PROFILE PIC - consolidated, paste in your CSS replacing any old .profile-pic rules */
+.profile-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* prevents layout shift when image scales */
+    position: relative;
+    z-index: 1;
+}
+
 .profile-pic {
     width: 310px;
     height: 310px;
     border-radius: 50%;
     border: 5px solid #4da6ff;
     object-fit: cover;
+    display: block;
+    will-change: transform, box-shadow;
     box-shadow: 0 0 25px #007bff, 0 0 40px #0044ff88;
-    animation: floatPic 3s ease-in-out infinite;
-    transition: transform 0.4s;
+    animation: floatPic 5s ease-in-out infinite;
+    transition: transform 0.55s cubic-bezier(.2,.9,.2,1), box-shadow 0.55s ease;
+    z-index: 2;               /* ensure it is above background layers */
+    pointer-events: auto;     /* ensure the image can receive hover */
 }
 
+/* Pause floating and apply smooth zoom + stronger glow on hover */
 .profile-pic:hover {
-    transform: scale(1.1);
-    box-shadow: 0 0 35px #00c3ff, 0 0 55px #0066ff88;
+    transform: scale(1.15);
+    box-shadow: 0 0 40px #00d4ff, 0 0 70px #0088ffbb;
+    animation-play-state: paused;
 }
+
+/* floating animation (keep if you want float when NOT hovered) */
+@keyframes floatPic {
+    0% { transform: translateY(0) rotateX(0deg) rotateY(0deg); }
+    50% { transform: translateY(-12px) rotateX(4deg) rotateY(-4deg); }
+    100% { transform: translateY(0) rotateX(0deg) rotateY(0deg); }
+}
+
+
 
 .name {
     margin-top: 20px;
@@ -382,68 +450,4 @@ footer {
     text-align: center;
     backdrop-filter: blur(100px);
     font-size: 20px;
-}
-
-@media (max-width: 1024px) {
-
-  nav {
-    flex-direction: column;
-    padding: 15px 20px;
-    text-align: center;
-  }
-
-  nav .social-icons img {
-    margin: 10px;
-  }
-
-  .profile-pic {
-    width: 240px;
-    height: 240px;
-  }
-
-  .card,
-  #projects .project-item,
-  #contact .contact-item {
-    width: 90%;
-  }
-
-  .experience {
-    width: 95%;
-  }
-}
-
-@media (max-width: 768px) {
-
-  body {
-    padding-top: 70px;
-  }
-
-  .banner {
-    padding-top: 30px;
-  }
-
-  .profile-pic {
-    width: 170px;
-    height: 170px;
-    margin: 15px auto 0 auto;
-    display: block;
-  }
-
-  .education-card,
-  .experience {
-    width: 95%;
-    margin: 0 auto 15px auto;
-    padding: 15px;
-    text-align: center;
-  }
-
-  .education-card .year,
-  .education-card .degree,
-  .education-card .institute,
-  .education-card .score {
-    display: block;
-    width: 100%;
-    text-align: center;
-    margin: 6px 0;
-  }
 }
