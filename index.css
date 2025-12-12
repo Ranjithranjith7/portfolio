@@ -523,11 +523,11 @@ footer {
     /* Nav */
     nav {
         flex-direction: column;
-        gap: 10px;
+        gap: 5px;
     }
 
     nav a {
-        font-size: 1rem;
+        font-size: 0.7rem;
     }
 
     /* Project Cards */
